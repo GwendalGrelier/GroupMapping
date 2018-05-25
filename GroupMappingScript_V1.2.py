@@ -1,4 +1,3 @@
-
 try:
     import pandas as pd
 except:
@@ -16,9 +15,7 @@ except:
     sys.exit() 
 import os, sys, re
 
-
 export_file_name = "new_excel_file.xls"
-
 
 
 def getDataFileName():
@@ -45,6 +42,7 @@ def getDataFileName():
             print("This is not a number.")
     return file_list[file_selection]
 
+
 def getGroupMapFileName():
     file_list = [f for f in os.listdir() if f.endswith('.txt')]
     
@@ -68,6 +66,7 @@ def getGroupMapFileName():
             print("This is not a number.")
     return file_list[file_selection]
 
+
 def openDataFile(file_name):
     try:
         with open(file_name, 'r') as f:
@@ -90,6 +89,7 @@ def openDataFile(file_name):
     data.columns = new_columns
     data = data.set_index('ID')
     return data
+
 
 def getGroupList(file):
     group_mapping = {}
@@ -121,6 +121,7 @@ def cleanGroupMapping(group_mapping, MZmine_sample_list):
         to_return_group_list[group] = file_list
 
     return to_return_group_list
+
 
 def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█'):
     """
